@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Header from './Header';
 
 const LandingPage = () => {
   return (
-    <div className="landing-page">
+    <div>
+      <Header />
+      <div className="landing-page">
       <div className="landing-background">
         <div className="landing-content">
           <h1>Welcome to Paradise Nursery</h1>
@@ -17,6 +20,7 @@ const LandingPage = () => {
           </Link>
         </div>
       </div>
+    </div>
     </div>
   );
 };

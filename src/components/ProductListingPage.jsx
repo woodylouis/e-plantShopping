@@ -1,5 +1,6 @@
 import React from "react";
 import { useCart } from "./CartContext";
+import Header from "./Header";
 
 const ProductListingPage = () => {
   const { addToCart, cartItems } = useCart();
@@ -72,7 +73,9 @@ const ProductListingPage = () => {
   }, {});
 
   return (
-    <div className="product-listing-page">
+    <div>
+      <Header />
+      <div className="product-listing-page">
       <h2 className="page-title">Our Plants</h2>
 
       {Object.entries(groupedPlants).map(([category, categoryPlants]) => (
@@ -102,6 +105,7 @@ const ProductListingPage = () => {
           </div>
         </div>
       ))}
+    </div>
     </div>
   );
 };

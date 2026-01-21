@@ -1,8 +1,11 @@
 import React from 'react';
+import Header from './Header';
 
 const AboutUs = () => {
   return (
-    <div className="about-us-container">
+    <div>
+      <Header />
+      <div className="about-us-container">
       <h2 className="page-title">About Paradise Nursery</h2>
 
       <div className="about-container">
@@ -81,6 +84,7 @@ const AboutUs = () => {
           </div>
         </section>
       </div>
+    </div>
     </div>
   );
 };
