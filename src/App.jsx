@@ -5,7 +5,7 @@ import { CartProvider } from "./components/CartSlice";
 import Header from "./components/Header";
 import LandingPage from "./components/LandingPage";
 import ProductListingPage from "./components/ProductListingPage";
-import ShoppingCartPage from "./components/ShoppingCartPage";
+import CartItem from "./components/CartItem";
 import AboutUs from "./components/AboutUs";
 
 function App() {
@@ -43,7 +43,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<ProductListingPage />} />
                 <Route path="/products" element={<ProductListingPage />} />
-                <Route path="/cart" element={<ShoppingCartPage />} />
+                <Route path="/cart" element={<CartItem />} />
                 <Route path="/about" element={<AboutUs />} />
               </Routes>
             )}
