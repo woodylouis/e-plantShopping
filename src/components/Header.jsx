@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useCart } from './CartContext';
 
-const Header = ({ cartItems }) => {
+const Header = () => {
   const location = useLocation();
+  const { cartItems } = useCart();
   
   // 计算购物车中的总数量
   const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
