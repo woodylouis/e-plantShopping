@@ -48,7 +48,7 @@ const ShoppingCartPage = () => {
             <Link to="/products" className="continue-shopping-button">
               Continue Shopping
             </Link>
-            <button className="checkout-button">Checkout</button>
+            <button className="checkout-button" onClick={() => alert('Coming Soon: Checkout functionality is not implemented yet!')}>Checkout</button>
           </div>
         </>
       )}
