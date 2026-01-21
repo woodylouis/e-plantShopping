@@ -21,6 +21,9 @@ const Header = ({ cartItems }) => {
           {location.pathname !== '/products' && (
             <Link to="/products" className="nav-link">Shop</Link>
           )}
+          {location.pathname !== '/about' && (
+            <Link to="/about" className="nav-link">About Us</Link>
+          )}
         </nav>
         
         <div className="header-cart">
