@@ -1,42 +1,488 @@
-#root {
-  max-width: 1280px;
+/* 全局样式重置和基础设置 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f4f4;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+/* 头部样式 */
+.header {
+  background-color: #2c5f2d;
+  color: white;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.header-logo h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.header-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #97bc62;
+}
+
+.header-cart {
+  position: relative;
+}
+
+.cart-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cart-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.cart-count {
+  background-color: #ff6b6b;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
+/* 页面标题样式 */
+.page-title {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c5f2d;
+  font-size: 2rem;
+}
+
+/* 着陆页样式 */
+.landing-page {
+  width: 100%;
+  min-height: calc(100vh - 80px);
+}
+
+.landing-background {
+  background-image: url('https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=1920&h=1080&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.landing-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.landing-content {
+  text-align: center;
+  color: white;
+  z-index: 1;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.landing-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.landing-description {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  line-height: 1.8;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.get-started-button {
+  display: inline-block;
+  background-color: #2c5f2d;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.get-started-button:hover {
+  background-color: #3a7c3a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 产品列表页样式 */
+.product-listing-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.category-section {
+  margin-bottom: 40px;
+}
+
+.category-title {
+  font-size: 1.5rem;
+  color: #2c5f2d;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #97bc62;
+  padding-bottom: 10px;
+}
+
+.plants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.plant-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.plant-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.plant-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.plant-info {
+  padding: 15px;
+}
+
+.plant-name {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #2c5f2d;
+}
+
+.plant-price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.add-to-cart-button {
+  width: 100%;
+  background-color: #2c5f2d;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-to-cart-button:hover {
+  background-color: #3a7c3a;
+}
+
+/* 购物车页面样式 */
+.cart-page {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.cart-summary {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.total-items {
+  color: #2c5f2d;
+}
+
+.total-price {
+  color: #ff6b6b;
+}
+
+.cart-items {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.cart-item-image {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.cart-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+.cart-item-name {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #2c5f2d;
+}
+
+.cart-item-price {
+  font-size: 1rem;
+  color: #333;
+}
+
+.cart-item-quantity {
+  display: flex;
+  align-items: center;
+  margin: 0 20px;
+}
+
+.quantity-button {
+  width: 30px;
+  height: 30px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.quantity-button:hover:not(:disabled) {
+  background-color: #e0e0e0;
+}
+
+.quantity-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.quantity {
+  margin: 0 15px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  min-width: 30px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.cart-item-total {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-right: 20px;
+  color: #ff6b6b;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.delete-button {
+  background-color: transparent;
+  border: none;
+  color: #ff6b6b;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.delete-button:hover {
+  color: #ff4757;
+}
+
+.delete-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+.cart-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.continue-shopping-button {
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.continue-shopping-button:hover {
+  background-color: #e0e0e0;
+}
+
+.checkout-button {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.checkout-button:hover {
+  background-color: #ff4757;
+}
+
+.empty-cart {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  text-align: center;
+}
+
+.empty-cart p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .header-nav {
+    gap: 15px;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  
+  .landing-content h1 {
+    font-size: 2rem;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  
+  .landing-description {
+    font-size: 1rem;
+  }
+  
+  .plants-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+  }
+  
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .cart-item-quantity {
+    margin: 0;
+  }
+  
+  .cart-item-total {
+    margin-right: 0;
+  }
+  
+  .cart-actions {
+    flex-direction: column;
+  }
+  
+  .cart-summary {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
 }
