@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Header from "./Header";
 import CartItem from "./CartItem";
 import { useCart } from "./CartContext";
 
@@ -17,9 +16,7 @@ const ShoppingCartPage = () => {
   );
 
   return (
-    <div>
-      <Header />
-      <div className="cart-page">
+    <div className="cart-page">
       <h2 className="page-title">Shopping Cart</h2>
 
       {cartItems.length === 0 ? (
@@ -55,7 +52,6 @@ const ShoppingCartPage = () => {
           </div>
         </>
       )}
-    </div>
     </div>
   );
 };
